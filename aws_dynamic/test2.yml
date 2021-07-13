@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks:
+  - community.aws.ec2_instance_info:
+      filters:
+        "tag:Name": testing
+    register: ec2
+
+  - debug:
+      msg: "{{ ec2['instances'][0]['public_ip_address'] }}"
+
+

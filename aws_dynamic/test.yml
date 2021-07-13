@@ -1,0 +1,13 @@
+- hosts: localhost
+  tasks:
+  - community.aws.ec2_instance_info:
+      filters:
+        "tag:Name": master
+        instance-state-name: ["running"]
+    register: ec2
+
+  - template:
+      src: "./b.txt"
+      #src: "{{ ec2['instances'][0]['public_ip_address'] }}"
+      dest: "./roles/k8s_master/vars/main.yml"
+

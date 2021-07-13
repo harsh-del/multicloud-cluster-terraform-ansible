@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    
+  - name: Initializing
+    shell: terraform -chdir=/terraform/Kube_Infrastructure  init
+            
+  - name: Approving
+    shell: terraform -chdir=/terraform/Kube_Infrastructure  apply -auto-approve
+
+  

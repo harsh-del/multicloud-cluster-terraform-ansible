@@ -1,0 +1,18 @@
+- name: Kubernetes Infrastructure Deployment on Multi Cloud
+  hosts: localhost
+  tasks:
+          
+  - name: Go to the main folder and execute command
+    command: chdir=/conf_local  ansible-playbook multi_cloud_infrastructure.yml
+
+  - name: Go to the aws folder and execute command
+    command: chdir=/aws_dynamic ansible-playbook test.yml
+
+  - name: Go to the aws folder and execute command
+    command: chdir=/aws_dynamic ansible-playbook master.yml
+
+  - name: Go to the gcp folder and execute command
+    command: chdir=/gcp_dynamic ansible-playbook slave.yml
+
+  - name: Go to the azure folder and execute command
+    command: chdir=/azure_dynamic ansible-playbook slave.yml

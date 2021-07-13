@@ -1,0 +1,13 @@
+plugin: gcp_compute
+projects:
+  - lw-summer
+regions:
+  - us-central1-a
+filters: []
+keyed_groups:
+  - prefix: tag
+    key: labels
+auth_kind: serviceaccount
+service_account_file: /gcp_dynamic/gcp_invent/service-account.json
+
+
